@@ -23,6 +23,10 @@ class Task extends Model
     }
     // * update()を以下に追加する
     
+    public function update($data){
+        $stmt = $this->db_manager->dbh->prepare('UPDATE ' . $this->table . ' SET title = ?, contents = ? WHERE id = ?');
+        $stmt->execute($data);
+    }
 
 
 
